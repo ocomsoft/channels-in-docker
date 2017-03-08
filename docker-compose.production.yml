@@ -14,10 +14,10 @@ services:
     depends_on:
       - database
       - redis
-  database:
-    extends:
-      file: docker-compose.base.yml
-      service: database
+
+  external_links:
+    - database:pgdata
+
   redis:
     extends:
       file: docker-compose.base.yml
