@@ -7,7 +7,7 @@ services:
     depends_on:
       - redis
     external_links:
-      - database: pgdata
+      - database:pgdata
     network_mode: bridge
 
   workerserver:
@@ -15,7 +15,7 @@ services:
       file: docker-compose.base.yml
       service: workerserver
     external_links:
-      - database: pgdata
+      - database:pgdata
     depends_on:
       - redis
     network_mode: bridge
