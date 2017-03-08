@@ -5,20 +5,24 @@ services:
       file: docker-compose.base.yml
       service: interfaceserver
     depends_on:
-      - database
       - redis
+    external_links:
+      - database: pgdata
+    network_mode: bridge
+
   workerserver:
     extends:
       file: docker-compose.base.yml
       service: workerserver
+    external_links:
+      - database: pgdata
     depends_on:
-      - database
       - redis
-
-  external_links:
-    - database: pgdata
+    network_mode: bridge
 
   redis:
     extends:
       file: docker-compose.base.yml
       service: redis
+
+    network_mode: bridge

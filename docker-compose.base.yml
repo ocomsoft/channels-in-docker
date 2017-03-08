@@ -10,6 +10,10 @@ services:
     environment:
       - DJANGO_SECRET_KEY
       - vhost=shojun2.ocom.com.au
+    network_mode: bridge
+    external_links:
+      - database: pgdata
+
 
   workerserver:
     build: .
@@ -18,9 +22,10 @@ services:
     command: /app/entrypoint-worker.sh
     environment:
       - DJANGO_SECRET_KEY
-
-  external_links:
-    - database: pgdata
+    network_mode: bridge
+    external_links:
+      - database: pgdata
 
   redis:
     image: redis:3.0-alpine
+    network_mode: bridge
