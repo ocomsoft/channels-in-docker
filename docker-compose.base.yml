@@ -20,7 +20,7 @@ services:
       - DJANGO_SECRET_KEY
 
   external_links:
-    - database:pgdata
+    - database: pgdata
 
   redis:
     image: redis:3.0-alpine

@@ -16,7 +16,7 @@ services:
       - redis
 
   external_links:
-    - database:pgdata
+    - database: pgdata
 
   redis:
     extends:
